@@ -4,7 +4,8 @@
   <img src="https://github.com/othorel/minishell/blob/main/img/minishell.png" />
 </p>
 
-Welcome to **FDF**, a 42 project where you create a 3D wireframe viewer for 3D landscapes based on 2D maps. The project involves graphics programming, coordinate transformation, and rendering.
+Welcome to **Minishell**, a project at 42 that explores system programming and shell implementation. In this project, you will build a minimal Unix shell that can execute commands, handle input and output redirection, manage built-in commands, and implement job control features like foreground and background processes.
+This project focuses on process management, file I/O redirection, signal handling, and memory management.
 
 ---
 
@@ -12,24 +13,37 @@ Welcome to **FDF**, a 42 project where you create a 3D wireframe viewer for 3D l
 
 | **Category**            | **Functions**                                                                                           |
 |-------------------------|--------------------------------------------------------------------------------------------------------|
-| **Main Program**         | `fdf` - Displays a 3D wireframe of a map with optional customization.                                  |
-| **Bonus Program**        | `fdf_bonus` - Enhances the main program with additional features such as interactive controls or extended visualization options. |
+| **Mandatory Program**   | `minishell` - Implement the minimal shell capable of executing user commands, handling input/output redirection, and managing built-in commands.|
+**Utility functions**   | `malloc` `free` `execve` `fork` `waitpid` `signal` `dup2`, etc...|
 
 ---
 
 ## 🚀 Key Features
 
-1. **3D Wireframe Rendering**:
-   - Renders a 3D wireframe of a given 2D map file (`*.fdf`) using isometric projection.
+1. **Command Parsing** :
+   - The shell should accept user input, split it into commands, and execute them sequentially.
+   - It should support basic shell features like piping (`|`), input redirection (`<`), and output redirection (`>`).
    
-2. **User Interaction**:
-   - Navigate, zoom, and rotate the 3D model for a more interactive experience.
+2. **Built-in Commands** :
+   - Implement basic shell built-in commands such as `cd`, `echo`, `exit`, `export`, `unset`, `env`, `pwd`.
+   - Handle errors for invalid or incorrect commands.
 
-3. **Customizability**:
-   - Colors, scaling, and transformations are adjustable to improve the visualization.
+3. **Process Management** :
+   - Use `fork()` to create new processes for each command.
+   - Use `execve()` to execute commands within those processes.
+   - Handle child process status with `waitpid()`.
 
-4. **Bonus Features**:
-   - Additional functionalities such as enhanced controls, alternative projections, or richer graphical effects.
+4. **Signal Handling** :
+   - Properly handle signals like `SIGINT` and `SIGQUIT` to allow for normal terminal control (e.g., pressing `Ctrl+C`).
+   - Make sure the shell does not crash on receiving signals.
+  
+5. **Job control** :
+   - Implement foreground and background process management using the `&` operator.
+   - Track running processes and allow the user to manage them.
+
+6. **Memory Management** :
+   - Ensure proper memory management by freeing allocated memory.
+   - Avoid memory leaks and handle errors properly during allocation.
 
 ---
 
