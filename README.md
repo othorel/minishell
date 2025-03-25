@@ -1,7 +1,7 @@
 # 🌐 Minishell - 42 Project
 
 <p align="center">
-  <img src="" />
+  <img src="https://github.com/othorel/minishell/blob/main/img/minishell.png" />
 </p>
 
 Welcome to **FDF**, a 42 project where you create a 3D wireframe viewer for 3D landscapes based on 2D maps. The project involves graphics programming, coordinate transformation, and rendering.
