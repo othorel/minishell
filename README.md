@@ -51,12 +51,14 @@ This project focuses on process management, file I/O redirection, signal handlin
 
 | **File**                | **Description**                                                                                        |
 |-------------------------|--------------------------------------------------------------------------------------------------------|
-| `Makefile`              | Automates the compilation process for both `fdf` and `fdf_bonus`.                                      |
-| `fdf.h`                 | Header file with function prototypes, macros, and necessary includes.                                  |
-| `src/*.c`               | Source files containing the logic for graphics rendering, file parsing, and user interactions.         |
-| `libft/`                | Custom library for utility functions like `ft_putnbr`, `ft_split`, and others.                        |
-| `minilibx-linux/`       | The MiniLibX library for managing graphics and rendering.                                              |
-| `obj/`                  | Directory for object files during compilation.                                                        |
+| `Makefile`              | Automates the compilation process. Run make to generate the `minishell` executable.                    |
+| `minishell.h`           | Header file with function prototypes and necessary includes for the shell program.                     |
+| `minishell.c`           | Main program that runs the shell loop and processes user input.                                        |
+| `libft/`                | Custom library for utility functions like `ft_putnbr`, `ft_split`, and others.                         |
+| `utils.c`               | Utility functions like memory management, command parsing, error handling, etc.                        |
+| `builtin.c`             | Implementation of built-in commands such as `cd`, `echo`, `exit`...                                    |
+| `execute.c`             | Logic for forking processes and executing commands with `execve()`.                                    |
+| `signals.c`             | Signal handling logic, particularly for handling `SIGINT` and `SIGQUIT`.                               |
 
 ---
 
@@ -67,10 +69,6 @@ Use the **Makefile** to compile the project.
 ### Compile the main program:
 ```bash
 make
-```
-### Compile the bonus program:
-```bash
-make bonus
 ```
 ### Clean the project (remove object files):
 ```bash
@@ -87,28 +85,40 @@ make re
 ---
 ## 💻 Usage
 
-Once compiled, you can run the program to display a 3D wireframe of a map.
+Once compiled, you can use the `minishell` program as follows:
 
-Run the main program:
+Run the shell:
 ```bash
-./fdf test_maps/[map].fdf
+./minishell
 ```
+This will launch the shell, and you can begin typing commands directly.
+```bash
+$ echo Hello, world!
+Hello, world!
+$ cd /path/to/directory
+$ ls -l
+$ exit
+```
+---
+## 🧪 Testing
 
-#### Different projections
+You can test the functionality of your shell by running various commands, including built-in commands and external commands.
 
-By pressing `I`, `O` and `P` keys on your keyboard, you will switch projection views to `Isometric`, `Top View` and `Perspective`, respectively. 
+For example:
+```bash
+$ ./minishell
+> echo Hello, world!
+Hello, world!
+> cd /nonexistent/path
+cd: no such file or directory: /nonexistent/path
+> ls -l
+> exit
+```
+---
+## 🤝 Contributing
 
-<figure>
-<figcaption><i>Isometric View</i></figcaption>
-<img width="550px" src=https://github.com/othorel/Fil-De-Fer/blob/main/img/Screenshot%20from%202025-01-20%2016-31-01.png alt="FdF Isometric"/>
-</figure>
-<figure>
-<figcaption><i>Top View</i></figcaption>
-<img width="550px" src=https://github.com/othorel/Fil-De-Fer/blob/main/img/Screenshot%20from%202025-01-20%2016-34-17.png alt="FdF Top View"/>
-</figure>
-<figure>
-<figcaption><i>Perspective View</i></figcaption>
-<img width="550px" src=https://github.com/othorel/Fil-De-Fer/blob/main/img/Screenshot%20from%202025-01-20%2016-32-41.png alt="FdF Perspective"/>
-</figure>
+If you'd like to contribute to this project, feel free to fork the repository, make your changes, and submit a pull request!
 
 ---
+
+
