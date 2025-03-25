@@ -1,0 +1,3 @@
+valgrind --suppressions=valgrind.supp --track-origins=yes --leak-check=full ./minishell
+
+valgrind --suppressions=valgrind.supp --leak-check=full --show-leak-kinds=all ./minishell
